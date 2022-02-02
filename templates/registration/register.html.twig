@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 fs-4 ">
+        <h1 class="text-center my-5">S'enregistrer</h1>
+        <div class="col-6 mx-auto">
+            {{ form_start(registrationForm, {attr: {class: 'd-flex flex-column'}}) }}
+            {{ form_widget(registrationForm) }}
+            <button type="submit" class="btn btn-secondary w-75 fs-4 mx-auto mt-5">Créer un compte</button>
+
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
