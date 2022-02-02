@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center">Toutes les recettes</h1>
+    <ul class="list-group col-6 mx-auto mt-5 fs-4">
+        {% if app.user %}
+            <a href="{{ path('recipe_new') }}" class="btn btn-secondary mb-5 fs-5">Ajouter une recette</a>
+        {% endif %}
+        {% for recipe in recipes %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><a class="btn" href="{{ path('recipe_show', {id: recipe.id}) }}">{{ recipe.name }}</a></span>
+                <span>
+                    <a href="{{ path('recipe_edit', {id: recipe.id}) }}" class="btn btn-secondary">Modifier</a>
+                    <a href="{{ path('recipe_delete', {id: recipe.id}) }}" class="btn btn-secondary">X</a>
+                </span>
+            </li>
+            {% else %}
+            <li class="list-group-item text-center">Aucune recette</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

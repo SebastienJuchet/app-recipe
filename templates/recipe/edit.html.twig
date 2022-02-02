@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edition catégorie{% endblock %}
+{% block title %}Editer recette{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
-        <h1 class="text-center mt-5">Editer {{ category.name }}</h1>
+        <h1 class="text-center mt-5">Créer une nouvelle catégorie</h1>
         <p class="text-center my-4">
-            <a class="btn btn-secondary" href="{{ path('category_index') }}">Retour à la liste des catégorie</a>
+            <a class="btn btn-secondary" href="{{ path('recipe_index') }}">Retour à la liste des recette</a>
         </p>
-
         {{ include('category/_form.html.twig', {button_label: 'Mettre à jour'}) }}
-
     </div>
 {% endblock %}
