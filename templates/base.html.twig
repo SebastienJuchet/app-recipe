@@ -15,7 +15,7 @@
         {% endblock %}
     </head>
     <body>
-        {% include 'components/_navbar.html.twig' %}
+        {{ render(controller('App\\Controller\\HomeController::navbar')) }}
         <div class="container">
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
