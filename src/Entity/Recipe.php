@@ -52,7 +52,7 @@ class Recipe
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ingredient::class, inversedBy="recipes")
+     * @ORM\ManyToMany(targetEntity=Ingredient::class, inversedBy="recipes", cascade={"persist"})
      */
     private $ingredients;
 
