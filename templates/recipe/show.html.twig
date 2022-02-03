@@ -5,10 +5,23 @@
 {% block body %}
     <div class="container mt-5">
         <h1 class="text-center">{{ recipe.name }}</h1>
+        {% if app.user == recipe.user %}
+            <p class="text-center">
+                <a href="{{ path('recipe_edit', {id: recipe.id}) }}" class="btn btn-secondary">Modifier</a>
+            </p>
+        {% endif %}
         <div class="col-10 mt-5 mx-auto">
-            <h3 class="text-center">Description</h3>
+            <ul class="list-group col-6 mx-auto">
+                {% for ingredient in recipe.ingredients %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>{{ ingredient.name }}</span>
+                        <span>{{ ingredient.quantity }} {{ ingredient.unit }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <h3 class="text-center mt-5">Description</h3>
             <img src="" alt="">
-            <p class="fs-4 mt-4">{{ recipe.description }}</p>
+            <p class="fs-4 mt-4 border">{{ recipe.description }}</p>
         </div>
     </div>
 {% endblock %}

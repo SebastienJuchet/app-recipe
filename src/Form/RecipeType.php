@@ -34,7 +34,9 @@ class RecipeType extends AbstractType
             ->add('ingredients', CollectionType::class, [
                 'entry_type' => IngredientType::class,
                 'allow_add' => true,
+                'allow_delete' => true,
                 'by_reference' => false,
+                'label' => false,
             ])
         ;
     }

@@ -5,7 +5,19 @@
 {% block body %}
 <div class="container mt-5">
     <h1 class="text-center">Créer une recette</h1>
-    {{ include('recipe/_form.html.twig', {button_label: 'Créer'}) }}
+    {{ form_start(form, {attr: {class: 'col-6 mx-auto mt-5 d-flex flex-column'}}) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.image) }}
+    {{ form_row(form.category) }}
+    <ul class="ingredients list-group"
+        data-index="{{ form.ingredients|length > 0 ? form.ingredients|last.vars.name + 1 : 0 }}"
+        data-prototype="{{ form_widget(form.ingredients.vars.prototype)|e('html_attr') }}"
+    ></ul>
+    <button type="button" class="add_ingredient_link btn btn-secondary" data-collection-holder-class="ingredients">Ajouter un ingredient</button>
+    <button class="btn btn-secondary w-75 fs-4 mt-4 mx-auto">Créer</button>
+    {{ form_end(form) }}
+
 </div>
 <script src="/js/recipe.js"></script>
 {% endblock %}
